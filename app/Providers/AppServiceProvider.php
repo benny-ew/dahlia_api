@@ -51,6 +51,21 @@ class AppServiceProvider extends ServiceProvider
             'App\Modules\Data\Repositories\IEntityRepository',
             'App\Modules\Data\Repositories\Impl\EloquentEntityRepository',
         );
+
+        $this->app->bind(
+            'App\Modules\Data\Repositories\IPipaRepository',
+            'App\Modules\Data\Repositories\Impl\EloquentPipaRepository',
+        );
+
+        $this->app->bind(
+            'App\Modules\Data\Repositories\IPelangganRepository',
+            'App\Modules\Data\Repositories\Impl\EloquentPelangganRepository',
+        );
+
+        $this->app->bind(
+            'App\Modules\Data\Repositories\IWatermeterRepository',
+            'App\Modules\Data\Repositories\Impl\EloquentWatermeterRepository',
+        );
     }
 
     /**

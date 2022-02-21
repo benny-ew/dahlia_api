@@ -2,10 +2,10 @@
 
 namespace App\Modules\Data\Models;
 
-use App\Modules\ByrnModel;
-
-class Watermeter extends ByrnModel
+class Watermeter extends Entity
 {
+
+    protected $table = 'pelanggan.watermeterpelanggan';
 
     public $fillable = [
         'id',
@@ -16,7 +16,6 @@ class Watermeter extends ByrnModel
         'tanggalpasang', 
         'tanggaltera', 
         'nospk', 
-        'fotowm', 
         'keterangan', 
         'geom'    
     ];
@@ -24,5 +23,14 @@ class Watermeter extends ByrnModel
     public $hidden = [
         ];
 
-    
+    public static function getRules($id = null): array
+    {
+       return [
+        'id'=>'required',
+        'nomersambungan'=>'required', 
+        'diameter'=>'required', 
+        'nomerwatermeter'=>'required', 
+        'geom' =>'required'
+       ];
+    }
 }

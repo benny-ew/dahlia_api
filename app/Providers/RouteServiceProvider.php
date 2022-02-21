@@ -68,6 +68,18 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('api')
                 ->namespace('')
                 ->group(base_path('app/Modules/Data/Routes/EntityRoutes.php'));
+
+            Route::middleware('api')
+                ->namespace('')
+                ->group(base_path('app/Modules/Data/Routes/PipaRoutes.php'));
+
+            Route::middleware('api')
+                ->namespace('')
+                ->group(base_path('app/Modules/Data/Routes/PelangganRoutes.php'));
+
+            Route::middleware('api')
+                ->namespace('')
+                ->group(base_path('app/Modules/Data/Routes/WatermeterRoutes.php'));
         });
     }
 

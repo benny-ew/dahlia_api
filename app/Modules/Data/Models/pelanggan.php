@@ -2,12 +2,10 @@
 
 namespace App\Modules\Data\Models;
 
-use App\Modules\ByrnModel;
-use Illuminate\Database\Eloquent\Relations\HasOne;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-
-class Pelanggan extends ByrnModel
+class Pelanggan extends Entity
 {
+
+    protected $table = 'pelanggan.bangunanpelanggan';
 
     public $fillable = [
         'id', 
@@ -31,4 +29,14 @@ class Pelanggan extends ByrnModel
 
     public $hidden = [
         ];
+    
+    public static function getRules($id = null): array
+        {
+           return [
+            'id'=>'required|uuid',
+            'nomersambungan'=>'required|max:20|unique',
+            'nama'=>'required|max:50',
+            'jenis'=>''//reguler, MBR 
+           ];
+        }
 }

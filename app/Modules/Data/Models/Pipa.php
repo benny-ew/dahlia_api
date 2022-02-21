@@ -2,10 +2,12 @@
 
 namespace App\Modules\Data\Models;
 
-use App\Modules\ByrnModel;
 
-class Pipa extends ByrnModel
+class Pipa extends Entity
 {
+
+    // protected $connection = 'pipa';
+    protected $table = 'perpipaan.pipa';
 
     public $fillable = [
         'id',
@@ -23,5 +25,21 @@ class Pipa extends ByrnModel
 
     public $hidden = [
         ];
-
+    
+    public static function getRules($id = null): array
+    {
+       return [
+        'id'=>'required',
+        'diameter'=>'required', 
+        'jenisbahan'=>'required', 
+        'kategori'=>'required', 
+        'nama_jalan'=>'required', 
+        'keterangan'=>'required', 
+        'geom'=>'required', 
+        'sumberair'=>'required', 
+        'wilayah'=>'required', 
+        'zona'=>'required', 
+        'blok'=>'required'
+       ];
+    }
 }
